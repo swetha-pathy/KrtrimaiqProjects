@@ -1,0 +1,1 @@
+Qualification test details can be updated by the admin.
