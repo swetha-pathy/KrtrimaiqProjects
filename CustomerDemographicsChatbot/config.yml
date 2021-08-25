@@ -1,0 +1,48 @@
+version: "2.0"
+language: en
+pipeline:
+  - name: SpacyNLP
+    model: "en_core_web_md"
+    case_sensitive: false
+  - name: "SpacyTokenizer"
+    # Flag to check whether to split intents
+    "intent_tokenization_flag": False
+    # Symbol on which intent should be split
+    "intent_split_symbol": "_"
+    # Regular expression to detect tokens
+    "token_pattern": None
+  - name: SpacyFeaturizer
+  - name: SpacyEntityExtractor
+    dimensions: ["PERSON"]
+  - name: RegexEntityExtractor
+    case_sensitive: False
+    use_lookup_tables: True
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    intent_classification: True
+    entity_recognition: False
+    epochs: 100
+  - name: FallbackClassifier
+    threshold: 0.7
+#  - name: DucklingEntityExtractor
+#    url: http://duckling.rasa.com:8000/
+#    dimensions:
+#    - email
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    retrieval_intent: chitchat
+    scale_loss: false
+
+policies:
+- name: AugmentedMemoizationPolicy
+- name: TEDPolicy
+  epochs: 40
+- name: RulePolicy
+  core_fallback_threshold: 0.4
+  core_fallback_action_name: "action_default_fallback"
+  enable_fallback_prediction: True

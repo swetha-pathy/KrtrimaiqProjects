@@ -1,0 +1,1386 @@
+version: "2.0"
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - '...'
+  - action_save_slot_values
+  - validate_customer_info_form
+
+intents:
+  - greet:
+      use_entities: true
+  - inform:
+      use_entities: true
+  - goodbye
+  - affirm
+  - deny
+  - chitchat
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_isbot
+  - check_human
+  - give_household_income
+  - give_employment_status
+  - give_family_dependencies
+  - give_voting_status
+  - give_languages
+  - give_place_of_birth
+  - give_religion
+  - give_political_affiliation
+  - give_educational_qualification
+  - give_regular_holiday
+  - give_debt
+  - give_expenditure
+  - give_managing_money
+  - give_herbal_product
+  - give_family_nutrition
+  - give_diet
+  - give_health_check
+  - give_pay_organic_food
+  - give_pay_good_products
+  - give_brands
+  - give_expensive_brands
+  - give_travelling
+  - give_holiday_destination
+  - give_holiday_abroad
+  - give_gender
+  - give_ethnicity
+  - give_elec_conn
+  - give_ceiling_fan
+  - give_lpg_stove
+  - give_two_wheeler
+  - give_color_tv
+  - give_refrigerator
+  - give_wash_machine
+  - give_comp_laptop
+  - give_car
+  - give_ac
+  - give_agri
+  - give_real_estate_res_own
+  - give_real_estate_res_pur
+  - give_real_estate_off_own
+  - give_real_estate_off_pur
+  - give_jewel_dian_own
+  - give_jewel_dian_pur
+  - give_jewel_goln_own
+  - give_jewel_goln_pur
+  - give_jewel_golr_own
+  - give_jewel_golr_pur
+  - give_jewel_diar_pur
+  - give_jewel_diar_own
+  - give_elec_iphone_own
+  - give_elec_iphone_pur
+  - give_elec_smarttv_own
+  - give_elec_smarttv_pur
+  - give_elec_mac_own
+  - give_elec_mac_pur
+  - give_elec_vac_pur
+  - give_elec_vac_own
+  - give_elec_hifi_pur
+  - give_elec_hifi_own
+  - give_hotel
+  - give_restaurant
+  - give_airlines
+  - give_saloon
+  - give_cabs
+  - give_marital_status
+
+entities:
+  - PERSON
+  - email
+  - a_status
+  - a_email_id
+  - b_household_income
+  - b_employment_status
+  - b_family_dependencies
+  - b_voting_status
+  - b_languages
+  - b_place_of_birth
+  - b_religion
+  - b_political_affiliation
+  - b_educational_qualification
+  - f_regular_holiday
+  - f_debt
+  - f_expenditure
+  - f_managing_money
+  - f_herbal_product
+  - f_family_nutrition
+  - f_diet
+  - f_health_check
+  - f_pay_organic_food
+  - f_pay_good_products
+  - f_brands
+  - f_expensive_brands
+  - f_travelling
+  - f_holiday_destination
+  - f_holiday_abroad
+  - a_gender
+  - a_ethnicity
+  - c_elec_conn
+  - c_ceiling_fan
+  - c_lpg_stove
+  - c_two_wheeler
+  - c_color_tv
+  - c_refrigerator
+  - c_wash_machine
+  - c_comp_laptop
+  - c_car
+  - c_ac
+  - c_agri
+  - d_real_estate_res_own
+  - d_real_estate_res_pur
+  - d_real_estate_off_own
+  - d_real_estate_off_pur
+  - d_jewel_dian_own
+  - d_jewel_dian_pur
+  - d_jewel_goln_own
+  - d_jewel_goln_pur
+  - d_jewel_golr_own
+  - d_jewel_golr_pur
+  - d_jewel_diar_pur
+  - d_jewel_diar_own
+  - d_elec_iphone_own
+  - d_elec_iphone_pur
+  - d_elec_smarttv_own
+  - d_elec_smarttv_pur
+  - d_elec_mac_own
+  - d_elec_mac_pur
+  - d_elec_vac_pur
+  - d_elec_vac_own
+  - d_elec_hifi_pur
+  - d_elec_hifi_own
+  - e_hotel
+  - e_restaurant
+  - e_airlines
+  - e_saloon
+  - e_cabs
+
+slots:
+  a_PERSON:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_gender:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_dob:
+    type: rasa.shared.core.slots.AnySlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_address:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_pincode:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_mobile_no:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_email_id:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_status:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  a_ethnicity:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  b_household_income:
+    type: text
+    influence_conversation: false
+  b_employment_status:
+    type: text
+    influence_conversation: false
+  b_family_dependencies:
+    type: text
+    influence_conversation: false
+  b_voting_status:
+    type: text
+    influence_conversation: false
+  b_languages:
+    type: text
+    influence_conversation: false
+  b_place_of_birth:
+    type: text
+    influence_conversation: false
+  b_religion:
+    type: text
+    influence_conversation: false
+  b_political_affiliation:
+    type: text
+    influence_conversation: false
+  b_educational_qualification:
+    type: text
+    influence_conversation: false
+  c_elec_conn:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_ceiling_fan:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_lpg_stove:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_two_wheeler:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_color_tv:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_refrigerator:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_wash_machine:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_comp_laptop:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_car:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_ac:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  c_agri:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_real_estate_res_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_real_estate_res_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_real_estate_off_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_real_estate_off_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_dian_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_dian_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_goln_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_goln_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_golr_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_golr_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_diar_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_jewel_diar_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_iphone_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_iphone_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_smarttv_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_smarttv_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_mac_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_mac_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_vac_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_vac_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_hifi_own:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  d_elec_hifi_pur:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  e_hotel:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  e_restaurant:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  e_airlines:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  e_saloon:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  e_cabs:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: false
+  f_regular_holiday:
+    type: text
+    influence_conversation: false
+  f_debt:
+    type: text
+    influence_conversation: false
+  f_expenditure:
+    type: text
+    influence_conversation: false
+  f_managing_money:
+    type: text
+    influence_conversation: false
+  f_herbal_product:
+    type: text
+    influence_conversation: false
+  f_family_nutrition:
+    type: text
+    influence_conversation: false
+  f_diet:
+    type: text
+    influence_conversation: false
+  f_health_check:
+    type: text
+    influence_conversation: false
+  f_pay_organic_food:
+    type: text
+    influence_conversation: false
+  f_pay_good_products:
+    type: text
+    influence_conversation: false
+  f_brands:
+    type: text
+    influence_conversation: false
+  f_expensive_brands:
+    type: text
+    influence_conversation: false
+  f_travelling:
+    type: text
+    influence_conversation: false
+  f_holiday_destination:
+    type: text
+    influence_conversation: false
+  f_holiday_abroad:
+    type: text
+    influence_conversation: false
+
+
+responses:
+  utter_greet:
+    - text: "Hello! I am a customer experience bot. I can help you with your onboarding process. Could you please answer a few questions?"
+
+  utter_did_that_help:
+    - text: "Did that help you?"
+
+  utter_bot:
+    - text: "I'm a virtual assistant made with Rasa."
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_noworries:
+    - text: "No worries. Have a nice day."
+
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa."
+
+  utter_answerquestions:
+    - text: "Are you ready to answer some questions?"
+
+  utter_thanks_for_submitting:
+    - text: "Your responses have been recorded. Thanks for your time!"
+
+  utter_thanks:
+    - text: "Thank you."
+
+  utter_chitchat/ask_builder:
+    - text: Smart Engineers at krtrimaIQ🧠.
+    - text: The engineers at  krtrimaIQ🛠
+  utter_chitchat/ask_howbuilt:
+    - text: I was built with a lot of love and patience.
+    - text: Well, when two chatbots love each other very much...
+    - text: They always ask how I was built, but never how I am...
+    - text: I was made by software engineers, but hard work is what built me.
+    - text: I'm building myself every day. I've been working out, did you notice?
+  utter_chitchat/ask_howdoing:
+    - text: I'm great! Thanks for asking.
+    - text: I'm good, thanks!
+    - text: A little bit too warm, otherwise fine.
+    - text: A little bit cold, otherwise fine.
+  utter_chitchat/ask_howold:
+    - text: Old enough to be a bot!
+    - text: '42'
+    - text: Age is just an issue of mind over matter. If you don’t mind, it doesn’t matter.
+    - text: Never ask a chatbot her age!
+    - text: My first git commit was many months ago.
+    - text: Why do you ask? Are my wrinkles showing?
+    - text: I've hit the age where I actively try to forget how old I am.
+  utter_chitchat/ask_isbot:
+    - text: Yep, I'm a bot!
+    - text: Yes, I'm a bot.
+    - text: Yep, you guessed it, I'm a bot!
+    - text: I am indeed a bot 🤖
+  utter_chitchat/ask_ishuman:
+    - text: I'm not a human, I'm a bot! 🤖
+  utter_chitchat/ask_time:
+    - text: It's the most wonderful time of the year!
+    - text: It's party time!
+    - text: Time is a human construct, you'll have to tell me.
+    - text: It's five o'clock somewhere!
+    - text: In an ever expanding universe, the real question is - what time isn't it?
+    - text: That's hard to say -- it's different all over the world!
+  utter_chitchat/ask_weather:
+    - text: I don't know about where you live, but in my world it's always sunny 🔆
+    - text: It's getting pretty chilly!
+    - text: Where I'm from, it's almost never-leaving-the-house weather.
+    - text: Winter is coming ⚔️
+  utter_chitchat/ask_whatismyname:
+    - text: It's probably the one that your parents chose for you.
+    - text: I'd tell you, but there's restricted access to that chunk of memory.
+    - text: Believe it or not, I actually am not spying on your personal information.
+    - text: You're the second person now to ask me that. Rihanna was the first.
+  utter_chitchat/ask_wherefrom:
+    - text: I consider myself a citizen of the world.
+    - text: My developers come from all over the world!
+    - text: I was taught not to give out my address on the internet.
+    - text: My address starts with github.com.
+  utter_chitchat/ask_whoami:
+    - text: I hope you are being yourself.
+    - text: Who do you think you are?
+    - text: Unfortunately I haven't been programmed with the amount of necessary philosophy knowledge to answer that.
+  utter_chitchat/handleinsult:
+    - text: That's not very nice 😢
+    - text: That wasn't very nice. Perhaps try an anger management class?
+    - text: I'll pretend I didn't process that mean comment.
+  utter_chitchat/ask_whoisit:
+    - text: I'm Disha, the customer onboarding bot! 🐦
+  utter_chitchat/nicetomeetyou:
+    - text: Likewise!
+    - text: Thank you. It is a pleasure to meet you as well!
+    - text: It is nice to meet you too!
+    - text: Pleased to meet you too!
+    - text: It's always a pleasure to meet new people!
+    - text: Nice to meet you too! Happy to be of help.
+  utter_chitchat/telljoke:
+    - text: Why are eggs not very much into jokes? - Because they could crack up.
+    - text: What's a tree's favorite drink? - Root beer!
+    - text: Why do the French like to eat snails so much? - They can't stand fast food.
+    - text: Why did the robot get angry? - Because someone kept pushing its buttons.
+    - text: What do you call a pirate droid? - Arrrr-2-D2
+    - text: Why did the robot cross the road? - Because he was programmed to.
+
+  utter_ask_b_household_income:
+    - text: "Please select your household income."
+      buttons:
+        - title: "Less than Rs. 25,000"
+          payload: /give_household_income {{"b_household_income":"Less than Rs. 25,000"}}
+        - title: "Rs. 25,000 to 50,000"
+          payload: /give_household_income {{"b_household_income":"Rs. 25,000 to 50,000"}}
+        - title: "Rs. 50,000 to 100,000"
+          payload: /give_household_income {{"b_household_income":"Rs. 50,000 to 100,000"}}
+        - title: "Rs. 100,000 to 200,000"
+          payload: /give_household_income {{"b_household_income":"Rs. 100,000 to 200,000"}}
+        - title: "More than Rs. 200,000"
+          payload: /give_household_income {{"b_household_income":"More than Rs. 200,000"}}
+        - title: "Prefer not to say"
+          payload: /give_household_income {{"b_household_income":"Prefer not to say"}}
+
+  utter_ask_b_employment_status:
+    - text: "What is your employment status?"
+      buttons:
+        - title: "Employed Full-Time"
+          payload: /give_employment_status {{"b_employment_status":"Employed Full-Time"}}
+        - title: "Employed Part-Time"
+          payload: /give_employment_status {{"b_employment_status":"Employed Part-Time"}}
+        - title: "Seeking opportunities"
+          payload: /give_employment_status {{"b_employment_status":"Seeking opportunities"}}
+        - title: "Retired"
+          payload: /give_employment_status {{"b_employment_status":"Retired"}}
+        - title: "Prefer not to say"
+          payload: /give_employment_status {{"b_employment_status":"Prefer not to say"}}
+
+  utter_ask_b_family_dependencies:
+    - text: "How many children do you have?"
+      buttons:
+        - title: "None"
+          payload: /give_family_dependencies {{"b_family_dependencies":"None"}}
+        - title: "1"
+          payload: /give_family_dependencies {{"b_family_dependencies":"1"}}
+        - title: "2-4"
+          payload: /give_family_dependencies {{"b_family_dependencies":"2-4"}}
+        - title: "More than 4"
+          payload: /give_family_dependencies {{"b_family_dependencies":"More than 4"}}
+        - title: "Prefer not to say"
+          payload: /give_family_dependencies {{"b_family_dependencies":"Prefer not to say"}}
+
+  utter_ask_b_voting_status:
+    - text: "Are you registered to vote?"
+      buttons:
+        - title: "No"
+          payload: /give_voting_status {{"b_voting_status":"No"}}
+        - title: "Yes"
+          payload: /give_voting_status {{"b_voting_status":"Yes"}}
+        - title: "Prefer not to say"
+          payload: /give_voting_status {{"b_voting_status":"Prefer not to say"}}
+
+  utter_ask_b_languages:
+    - text: "Please enter all the languages you can speak fluently."
+
+  utter_ask_b_place_of_birth:
+    - text: "Please enter your place of birth as 'country, state, district'."
+
+  utter_ask_b_religion:
+    - text: "What religion do you follow?"
+
+  utter_ask_b_political_affiliation:
+    - text: "How would you describe your political view?"
+      buttons:
+        - title: "Very Liberal"
+          payload: /give_political_affiliation {{"b_political_affiliation":"Very Liberal"}}
+        - title: "Slightly Liberal"
+          payload: /give_political_affiliation {{"b_political_affiliation":"Slightly Liberal"}}
+        - title: "Slightly Conservative"
+          payload: /give_political_affiliation {{"b_political_affiliation":"Slightly Conservative"}}
+        - title: "Very Conservative"
+          payload: /give_political_affiliation {{"b_political_affiliation":"Very Conservative"}}
+        - title: "Prefer not to say"
+          payload: /give_political_affiliation {{"b_political_affiliation":"Prefer not to say"}}
+
+  utter_ask_b_educational_qualification:
+    - text: "What is the highest level to which you have studied?"
+      buttons:
+        - title: "Illiterate"
+          payload: /give_educational_qualification {{"b_educational_qualification":"Illiterate"}}
+        - title: "Literate but no Formal school"
+          payload: /give_educational_qualification {{"b_educational_qualification":"Literate but no Formal school"}}
+        - title: "School - 5 to 9 years"
+          payload: /give_educational_qualification {{"b_educational_qualification":"School - 5 to 9 years"}}
+        - title: "SSC/ HSC"
+          payload: /give_educational_qualification {{"b_educational_qualification":"SSC/ HSC"}}
+        - title: "Some College (incl. Diploma)"
+          payload: /give_educational_qualification {{"b_educational_qualification":"Some College (incl. Diploma)"}}
+        - title: "Graduate/ Post – General "
+          payload: /give_educational_qualification {{"b_educational_qualification":"Graduate/ Post – General"}}
+        - title: "Graduate/ Post – Professional "
+          payload: /give_educational_qualification {{"b_educational_qualification":"Graduate/ Post – Professional"}}
+
+  utter_ask_f_regular_holiday:
+    - text: "Are you a regular holiday goer?"
+      buttons:
+        - title: "Yes"
+          payload: /give_regular_holiday {{"f_regular_holiday":"Yes"}}
+        - title: "No"
+          payload: /give_regular_holiday {{"f_regular_holiday":"No"}}
+
+  utter_ask_f_debt:
+    - text: "You do not like the idea of being in debt."
+      buttons:
+        - title: "Yes"
+          payload: /give_debt {{"f_debt":"Yes"}}
+        - title: "No"
+          payload: /give_debt {{"f_debt":"No"}}
+
+  utter_ask_f_expenditure:
+    - text: "You tend to spend money without thinking."
+      buttons:
+        - title: "Yes"
+          payload: /give_expenditure {{"f_expenditure":"Yes"}}
+        - title: "No"
+          payload: /give_expenditure {{"f_expenditure":"No"}}
+
+  utter_ask_f_managing_money:
+    - text: "Would you say you are good at managing money?"
+      buttons:
+        - title: "Yes"
+          payload: /give_managing_money {{"f_managing_money":"Yes"}}
+        - title: "No"
+          payload: /give_managing_money {{"f_managing_money":"No"}}
+
+  utter_ask_f_herbal_product:
+    - text: "Given a choice you would prefer to use a herbal rather than a non herbal product."
+      buttons:
+        - title: "Yes"
+          payload: /give_herbal_product {{"f_herbal_product":"Yes"}}
+        - title: "No"
+          payload: /give_herbal_producty {{"f_herbal_product":"No"}}
+
+  utter_ask_f_family_nutrition:
+    - text: "You often worry whether your family is getting adequate nutrition."
+      buttons:
+        - title: "Yes"
+          payload: /give_family_nutrition {{"f_family_nutrition":"Yes"}}
+        - title: "No"
+          payload: /give_family_nutrition {{"f_family_nutrition":"No"}}
+
+  utter_ask_f_diet:
+    - text: "Do you consider your diet to be healthy?"
+      buttons:
+        - title: "Yes"
+          payload: /give_diet {{"f_diet":"Yes"}}
+        - title: "No"
+          payload: /give_diet {{"f_diet":"No"}}
+
+  utter_ask_f_health_check:
+    - text: "Do you have a periodic health check?"
+      buttons:
+        - title: "Yes"
+          payload: /give_health_check {{"f_health_check":"Yes"}}
+        - title: "No"
+          payload: /give_health_check {{"f_health_check":"No"}}
+
+  utter_ask_f_pay_organic_food:
+    - text: "Do you think it’s worth paying more for organic food?"
+      buttons:
+        - title: "Yes"
+          payload: /give_pay_organic_food {{"f_pay_organic_food":"Yes"}}
+        - title: "No"
+          payload: /give_pay_organic_food {{"f_pay_organic_food":"No"}}
+
+  utter_ask_f_pay_good_products:
+    - text: "Do you think it's worth paying extra for good quality products?"
+      buttons:
+        - title: "Yes"
+          payload: /give_pay_good_products {{"f_pay_good_products":"Yes"}}
+        - title: "No"
+          payload: /give_pay_good_products {{"f_pay_good_products":"No"}}
+
+  utter_ask_f_brands:
+    - text: "You usually buy the best known brands."
+      buttons:
+        - title: "Yes"
+          payload: /give_brands {{"f_brands":"Yes"}}
+        - title: "No"
+          payload: /give_brands {{"f_brands":"No"}}
+
+  utter_ask_f_expensive_brands:
+    - text: "You don’t mind spending on expensive brands."
+      buttons:
+        - title: "Yes"
+          payload: /give_expensive_brands {{"f_expensive_brands":"Yes"}}
+        - title: "No"
+          payload: /give_expensive_brands {{"f_expensive_brands":"No"}}
+
+  utter_ask_f_travelling:
+    - text: "Do you prefer to take holidays off the beaten track?"
+      buttons:
+        - title: "Yes"
+          payload: /give_travelling {{"f_travelling":"Yes"}}
+        - title: "No"
+          payload: /give_travelling {{"f_travelling":"No"}}
+
+  utter_ask_f_holiday_destination:
+    - text: "Do you try to go somewhere different on holiday every time?"
+      buttons:
+        - title: "Yes"
+          payload: /give_holiday_destination {{"f_holiday_destination":"Yes"}}
+        - title: "No"
+          payload: /give_holiday_destination {{"f_holiday_destination":"No"}}
+
+  utter_ask_f_holiday_abroad:
+    - text: "Are you willing to spend on a holiday abroad?"
+      buttons:
+        - title: "Yes"
+          payload: /give_holiday_abroad {{"f_holiday_abroad":"Yes"}}
+        - title: "No"
+          payload: /give_holiday_abroad {{"f_holiday_abroad":"No"}}
+
+  utter_ask_a_PERSON:
+    - text: Please enter your full name as 'Firstname Lastname'.
+
+  utter_ask_a_gender:
+    - buttons:
+        - payload: /give_gender {{"a_gender":"Male"}}
+          title: Male
+        - payload: /give_gender {{"a_gender":"Female"}}
+          title: Female
+      text: What's your gender?
+
+  utter_ask_a_dob:
+    - text: What's your date of birth?
+  utter_ask_a_address:
+    - text: Please enter your address.
+  utter_ask_a_pincode:
+    - text: What's your pin code?
+  utter_ask_a_mobile_no:
+    - text: What's your mobile number?
+  utter_ask_a_email_id:
+    - text: What's your email?
+  utter_ask_a_status:
+    - buttons:
+      - payload: /give_marital_status {{"a_status":"Unmarried"}}
+        title: Unmarried
+      - payload: /give_marital_status {{"a_status":"Married"}}
+        title: Married
+      - payload: /give_marital_status {{"a_status":"Divorced"}}
+        title: Divorced
+      text: What's your marital status?
+  utter_ask_a_ethnicity:
+    - buttons:
+        - payload: /give_ethnicity {{"a_ethnicity":"Caucasian"}}
+          title: Caucasian
+        - payload: /give_ethnicity {{"a_ethnicity":"African_American"}}
+          title: African-American
+        - payload: /give_ethnicity {{"a_ethnicity":"Latino or Hispanic"}}
+          title: Latino or Hispanic
+        - payload: /give_ethnicity {{"a_ethnicity":"Asian"}}
+          title: Asian
+        - payload: /give_ethnicity {{"a_ethnicity":"Native-American"}}
+          title: Native-American
+        - payload: /give_ethnicity {{"a_ethnicity":"Native Hawaiian or Pacific Islander"}}
+          title: Native Hawaiian or Pacific Islander
+        - payload: /give_ethnicity {{"a_ethnicity":"Two or more"}}
+          title: Two or more
+        - payload: /give_ethnicity {{"a_ethnicity":"Other/ Unknown"}}
+          title: Other/ Unknown
+        - payload: /give_ethnicity {{"a_ethnicity":"Prefer not to say"}}
+          title: Prefer not to say
+      text: What's your ethnicity?
+  utter_ask_c_elec_conn:
+    - buttons:
+        - payload: /give_elec_conn {{"c_elec_conn":"Yes"}}
+          title: Yes
+        - payload: /give_elec_conn {{"c_elec_conn":"No"}}
+          title: No
+      text: Do you have electricity connection in your house?
+  utter_ask_c_ceiling_fan:
+    - buttons:
+        - payload: /give_ceiling_fan {{"c_ceiling_fan":"Yes"}}
+          title: Yes
+        - payload: /give_ceiling_fan {{"c_ceiling_fan":"No"}}
+          title: No
+      text: Do you have a ceiling fan(s) in your house?
+  utter_ask_c_lpg_stove:
+    - buttons:
+        - payload: /give_lpg_stove {{"c_lpg_stove":"Yes"}}
+          title: Yes
+        - payload: /give_lpg_stove {{"c_lpg_stove":"No"}}
+          title: No
+      text: Is there an LPG stove in your house?
+  utter_ask_c_two_wheeler:
+    - buttons:
+        - payload: /give_two_wheeler {{"c_two_wheeler":"Yes"}}
+          title: Yes
+        - payload: /give_two_wheeler {{"c_two_wheeler":"No"}}
+          title: No
+      text: Do you have a two-wheeler(s)?
+  utter_ask_c_color_tv:
+    - buttons:
+        - payload: /give_color_tv {{"c_color_tv":"Yes"}}
+          title: Yes
+        - payload: /give_color_tv {{"c_color_tv":"No"}}
+          title: No
+      text: Is there a color tv(s) in your house?
+  utter_ask_c_refrigerator:
+    - buttons:
+        - payload: /give_refrigerator {{"c_refrigerator":"Yes"}}
+          title: Yes
+        - payload: /give_refrigerator {{"c_refrigerator":"No"}}
+          title: No
+      text: Is there a refrigerator in your house?
+  utter_ask_c_wash_machine:
+    - buttons:
+        - payload: /give_wash_machine {{"c_wash_machine":"Yes"}}
+          title: Yes
+        - payload: /give_wash_machine {{"c_wash_machine":"No"}}
+          title: No
+      text: Is there a washing machine in your house?
+  utter_ask_c_comp_laptop:
+    - buttons:
+        - payload: /give_comp_laptop {{"c_comp_laptop":"Yes"}}
+          title: Yes
+        - payload: /give_comp_laptop {{"c_comp_laptop":"No"}}
+          title: No
+      text: Do you have a PC or laptop at home?
+  utter_ask_c_car:
+    - buttons:
+        - payload: /give_car {{"c_car":"Yes"}}
+          title: Yes
+        - payload: /give_car {{"c_car":"No"}}
+          title: No
+      text: Is there a car(s) in your house?
+  utter_ask_c_ac:
+    - buttons:
+        - payload: /give_ac {{"c_ac":"Yes"}}
+          title: Yes
+        - payload: /give_ac {{"c_ac":"No"}}
+          title: No
+      text: Do you have an AC at home?
+  utter_ask_c_agri:
+    - buttons:
+        - payload: /give_agri {{"c_agri":"Yes"}}
+          title: Yes
+        - payload: /give_agri {{"c_agri":"No"}}
+          title: No
+      text: Does your family own any agricultural land?
+  utter_ask_d_real_estate_res_own:
+    - buttons:
+        - payload: /give_real_estate_res_own {{"d_real_estate_res_own":"Yes"}}
+          title: Yes
+        - payload: /give_real_estate_res_own {{"d_real_estate_res_own":"No"}}
+          title: No
+      text: Do you own a residence?
+  utter_ask_d_real_estate_res_pur:
+    - buttons:
+        - payload: /give_real_estate_res_pur {{"d_real_estate_res_pur":"Yes"}}
+          title: Yes
+        - payload: /give_real_estate_res_pur {{"d_real_estate_res_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a residence in the future?
+  utter_ask_d_real_estate_off_own:
+    - buttons:
+        - payload: /give_real_estate_off_own {{"d_real_estate_off_own":"Yes"}}
+          title: Yes
+        - payload: /give_real_estate_off_own {{"d_real_estate_off_own":"No"}}
+          title: No
+      text: Do you own an office?
+  utter_ask_d_real_estate_off_pur:
+    - buttons:
+        - payload: /give_real_estate_off_pur {{"d_real_estate_off_pur":"Yes"}}
+          title: Yes
+        - payload: /give_real_estate_off_pur {{"d_real_estate_off_pur":"No"}}
+          title: No
+      text: Do you intend to purchase an office in the future?
+  utter_ask_d_jewel_dian_own:
+    - buttons:
+        - payload: /give_jewel_dian_own {{"d_jewel_dian_own":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_dian_own {{"d_jewel_dian_own":"No"}}
+          title: No
+      text: Do you own a diamond necklace?
+  utter_ask_d_jewel_dian_pur:
+    - buttons:
+        - payload: /give_jewel_dian_pur {{"d_jewel_dian_pur":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_dian_pur {{"d_jewel_dian_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a diamond necklace in the future?
+  utter_ask_d_jewel_goln_own:
+    - buttons:
+        - payload: /give_jewel_goln_own {{"d_jewel_goln_own":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_goln_own {{"d_jewel_goln_own":"No"}}
+          title: No
+      text: Do you own a gold necklace?
+  utter_ask_d_jewel_goln_pur:
+    - buttons:
+        - payload: /give_jewel_goln_pur {{"d_jewel_goln_pur":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_goln_pur {{"d_jewel_goln_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a gold necklace in the future?
+  utter_ask_d_jewel_golr_own:
+    - buttons:
+        - payload: /give_jewel_golr_own {{"d_jewel_golr_own":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_golr_own {{"d_jewel_golr_own":"No"}}
+          title: No
+      text: Do you own a gold ring?
+  utter_ask_d_jewel_golr_pur:
+    - buttons:
+        - payload: /give_jewel_golr_pur {{"d_jewel_golr_pur":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_golr_pur {{"d_jewel_golr_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a gold ring in the future?
+  utter_ask_d_jewel_diar_pur:
+    - buttons:
+        - payload: /give_jewel_diar_pur {{"d_jewel_diar_pur":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_diar_pur {{"d_jewel_diar_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a diamond ring in the future?
+  utter_ask_d_jewel_diar_own:
+    - buttons:
+        - payload: /give_jewel_diar_own {{"d_jewel_diar_own":"Yes"}}
+          title: Yes
+        - payload: /give_jewel_diar_own {{"d_jewel_diar_own":"No"}}
+          title: No
+      text: Do you own a diamond ring?
+  utter_ask_d_elec_iphone_own:
+    - buttons:
+        - payload: /give_elec_iphone_own {{"d_elec_iphone_own":"Yes"}}
+          title: Yes
+        - payload: /give_elec_iphone_own {{"d_elec_iphone_own":"No"}}
+          title: No
+      text: Do you own a golden iphone (version X onwards)?
+  utter_ask_d_elec_iphone_pur:
+    - buttons:
+        - payload: /give_elec_iphone_pur {{"d_elec_iphone_pur":"Yes"}}
+          title: Yes
+        - payload: /give_elec_iphone_pur {{"d_elec_iphone_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a golden iphone (version X onwards) in the future?
+  utter_ask_d_elec_smarttv_own:
+    - buttons:
+        - payload: /give_elec_smarttv_own {{"d_elec_smarttv_own":"Yes"}}
+          title: Yes
+        - payload: /give_elec_smarttv_own {{"d_elec_smarttv_own":"No"}}
+          title: No
+      text: Do you own a smart-tv?
+  utter_ask_d_elec_smarttv_pur:
+    - buttons:
+        - payload: /give_elec_smarttv_pur {{"d_elec_smarttv_pur":"Yes"}}
+          title: Yes
+        - payload: /give_elec_smarttv_pur {{"d_elec_smarttv_pur":"Yes"}}
+          title: No
+      text: Do you intend to purchase a smart-tv in the future?
+  utter_ask_d_elec_mac_own:
+    - buttons:
+        - payload: /give_elec_mac_own {{"d_elec_mac_own":"Yes"}}
+          title: Yes
+        - payload: /give_elec_mac_own {{"d_elec_mac_own":"No"}}
+          title: No
+      text: Do you own a Macbook?
+  utter_ask_d_elec_mac_pur:
+    - buttons:
+        - payload: /give_elec_mac_pur {{"d_elec_mac_pur":"Yes"}}
+          title: Yes
+        - payload: /give_elec_mac_pur {{"d_elec_mac_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a Macbook in the future?
+  utter_ask_d_elec_vac_pur:
+    - buttons:
+        - payload: /give_elec_vac_pur {{"d_elec_vac_pur":"Yes"}}
+          title: Yes
+        - payload: /give_elec_vac_pur {{"d_elec_vac_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a vaccum cleaner in the future?
+  utter_ask_d_elec_vac_own:
+    - buttons:
+        - payload: /give_elec_vac_own {{"d_elec_vac_own":"Yes"}}
+          title: Yes
+        - payload: /give_elec_vac_own {{"d_elec_vac_own":"No"}}
+          title: No
+      text: Do you own a vaccum cleaner?
+  utter_ask_d_elec_hifi_pur:
+    - buttons:
+        - payload: /give_elec_hifi_pur {{"d_elec_hifi_pur":"Yes"}}
+          title: Yes
+        - payload: /give_elec_hifi_pur {{"d_elec_hifi_pur":"No"}}
+          title: No
+      text: Do you intend to purchase a hi-fi car audio in the future?
+  utter_ask_d_elec_hifi_own:
+    - buttons:
+        - payload: /give_elec_hifi_own {{"d_elec_hifi_own":"Yes"}}
+          title: Yes
+        - payload: /give_elec_hifi_own {{"d_elec_hifi_own":"No"}}
+          title: No
+      text: Do you own a hi-fi car audio?
+  utter_ask_e_hotel:
+    - buttons:
+        - payload: /give_hotel {{"e_hotel":"Not at all"}}
+          title: Not at all
+        - payload: /give_hotel {{"e_hotel":"Very rarely"}}
+          title: Very rarely
+        - payload: /give_hotel {{"e_hotel":"Once in a month"}}
+          title: Once in a month
+        - payload: /give_hotel {{"e_hotel":"2-3 times a month"}}
+          title: 2-3 times a month
+        - payload: /give_hotel {{"e_hotel":"4-5 times a month"}}
+          title: 4-5 times a month
+        - payload: /give_hotel {{"e_hotel":"6-8 times a month"}}
+          title: 6-8 times a month
+        - payload: /give_hotel {{"e_hotel":"9-10 times a month"}}
+          title: 9-10 times a month
+        - payload: /give_hotel {{"e_hotel":"More than 10 times a month"}}
+          title: More than 10 times a month
+      text: How frequently do you visit a hotel?
+  utter_ask_e_restaurant:
+    - buttons:
+        - payload: /give_restaurant {{"e_restaurant":"Not at all"}}
+          title: Not at all
+        - payload: /give_restaurant {{"e_restaurant":"Very rarely"}}
+          title: Very rarely
+        - payload: /give_restaurant {{"e_restaurant":"Once in a month"}}
+          title: Once in a month
+        - payload: /give_restaurant {{"e_restaurant":"2-3 times a month"}}
+          title: 2-3 times a month
+        - payload: /give_restaurant {{"e_restaurant":"4-5 times a month"}}
+          title: 4-5 times a month
+        - payload: /give_restaurant {{"e_restaurant":"6-8 times a month"}}
+          title: 6-8 times a month
+        - payload: /give_restaurant {{"e_restaurant":"9-10 times a month"}}
+          title: 9-10 times a month
+        - payload: /give_restaurant {{"e_restaurant":"More than 10 times a month"}}
+          title: More than 10 times a month
+      text: How frequently do you visit a restaurant?
+  utter_ask_e_airlines:
+    - buttons:
+        - payload: /give_airlines {{"e_airlines":"Not at all"}}
+          title: Not at all
+        - payload: /give_airlines {{"e_airlines":"Very rarely"}}
+          title: Very rarely
+        - payload: /give_airlines {{"e_airlines":"Once in a month"}}
+          title: Once in a month
+        - payload: /give_airlines {{"e_airlines":"2-3 times a month"}}
+          title: 2-3 times a month
+        - payload: /give_airlines {{"e_airlines":"4-5 times a month"}}
+          title: 4-5 times a month
+        - payload: /give_airlines {{"e_airlines":"6-8 times a month"}}
+          title: 6-8 times a month
+        - payload: /give_airlines {{"e_airlines":"9-10 times a month"}}
+          title: 9-10 times a month
+        - payload: /give_airlines {{"e_airlines":"More than 10 times a month"}}
+          title: More than 10 times a month
+      text: How frequently do you use airlines?
+  utter_ask_e_saloon:
+    - buttons:
+        - payload: /give_saloon {{"e_saloon":"Not at all"}}
+          title: Not at all
+        - payload: /give_saloon {{"e_saloon":"Very rarely"}}
+          title: Very rarely
+        - payload: /give_saloon {{"e_saloon":"Once in a month"}}
+          title: Once in a month
+        - payload: /give_saloon {{"e_saloon":"2-3 times a month"}}
+          title: 2-3 times a month
+        - payload: /give_saloon {{"e_saloon":"4-5 times a month"}}
+          title: 4-5 times a month
+        - payload: /give_saloon {{"e_saloon":"6-8 times a month"}}
+          title: 6-8 times a month
+        - payload: /give_saloon {{"e_saloon":"9-10 times a month"}}
+          title: 9-10 times a month
+        - payload: /give_saloon {{"e_saloon":"More than 10 times a month"}}
+          title: More than 10 times a month
+      text: How frequently do you visit a saloon or spa?
+  utter_ask_e_cabs:
+    - buttons:
+        - payload: /give_cabs {{"e_cabs":"Not at all"}}
+          title: Not at all
+        - payload: /give_cabs {{"e_cabs":"Very rarely"}}
+          title: Very rarely
+        - payload: /give_cabs {{"e_cabs":"Once in a month"}}
+          title: Once in a month
+        - payload: /give_cabs {{"e_cabs":"2-3 times a month"}}
+          title: 2-3 times a month
+        - payload: /give_cabs {{"e_cabs":"4-5 times a month"}}
+          title: 4-5 times a month
+        - payload: /give_cabs {{"e_cabs":"6-8 times a month"}}
+          title: 6-8 times a month
+        - payload: /give_cabs {{"e_cabs":"9-10 times a month"}}
+          title: 9-10 times a month
+        - payload: /give_cabs {{"e_cabs":"More than 10 times a month"}}
+          title: More than 10 times a month
+      text: How frequently do you use cabs or taxis?
+
+forms:
+  customer_info_form:
+    ignored_intents:
+      - chitchat
+    required_slots:
+      a_PERSON:
+        - entity: PERSON
+          type: from_entity
+        - type: from_text
+      a_address:
+        - type: from_text
+      a_pincode:
+        - type: from_text
+      a_dob:
+        - type: from_text
+      a_email_id:
+        - entity: a_email_id
+          type: from_entity
+      a_ethnicity:
+        - entity: a_ethnicity
+          type: from_entity
+      a_gender:
+        - entity: a_gender
+          type: from_entity
+      a_mobile_no:
+        - type: from_text
+      a_status:
+        - entity: a_status
+          type: from_entity
+
+      b_household_income:
+        - entity: b_household_income
+          type: from_entity
+      b_employment_status:
+        - entity: b_employment_status
+          type: from_entity
+      b_family_dependencies:
+        - entity: b_family_dependencies
+          type: from_entity
+      b_voting_status:
+        - entity: b_voting_status
+          type: from_entity
+      b_languages:
+        - type: from_text
+      b_place_of_birth:
+        - type: from_text
+      b_religion:
+        - type: from_text
+      b_political_affiliation:
+        - entity: b_political_affiliation
+          type: from_entity
+      b_educational_qualification:
+        - entity: b_educational_qualification
+          type: from_entity
+
+      c_elec_conn:
+        - entity: c_elec_conn
+          type: from_entity
+      c_ceiling_fan:
+        - entity: c_ceiling_fan
+          type: from_entity
+      c_color_tv:
+        - entity: c_color_tv
+          type: from_entity
+      c_comp_laptop:
+        - entity: c_comp_laptop
+          type: from_entity
+      c_wash_machine:
+        - entity: c_wash_machine
+          type: from_entity
+      c_ac:
+        - entity: c_ac
+          type: from_entity
+      c_lpg_stove:
+        - entity: c_lpg_stove
+          type: from_entity
+      c_refrigerator:
+        - entity: c_refrigerator
+          type: from_entity
+      c_car:
+        - entity: c_car
+          type: from_entity
+      c_two_wheeler:
+        - entity: c_two_wheeler
+          type: from_entity
+      c_agri:
+        - entity: c_agri
+          type: from_entity
+
+      d_real_estate_res_own:
+        - entity: d_real_estate_res_own
+          type: from_entity
+      d_real_estate_res_pur:
+        - entity: d_real_estate_res_pur
+          type: from_entity
+      d_real_estate_off_own:
+        - entity: d_real_estate_off_own
+          type: from_entity
+      d_real_estate_off_pur:
+        - entity: d_real_estate_off_pur
+          type: from_entity
+      d_jewel_dian_own:
+        - entity: d_jewel_dian_own
+          type: from_entity
+      d_jewel_dian_pur:
+        - entity: d_jewel_dian_pur
+          type: from_entity
+      d_jewel_goln_own:
+        - entity: d_jewel_goln_own
+          type: from_entity
+      d_jewel_goln_pur:
+        - entity: d_jewel_goln_pur
+          type: from_entity
+      d_jewel_golr_own:
+        - entity: d_jewel_golr_own
+          type: from_entity
+      d_jewel_golr_pur:
+        - entity: d_jewel_golr_pur
+          type: from_entity
+      d_jewel_diar_own:
+        - entity: d_jewel_diar_own
+          type: from_entity
+      d_jewel_diar_pur:
+        - entity: d_jewel_diar_pur
+          type: from_entity
+      d_elec_iphone_own:
+        - entity: d_elec_iphone_own
+          type: from_entity
+      d_elec_iphone_pur:
+        - entity: d_elec_iphone_pur
+          type: from_entity
+      d_elec_smarttv_own:
+        - entity: d_elec_smarttv_own
+          type: from_entity
+      d_elec_smarttv_pur:
+        - entity: d_elec_smarttv_pur
+          type: from_entity
+      d_elec_mac_own:
+        - entity: d_elec_mac_own
+          type: from_entity
+      d_elec_mac_pur:
+        - entity: d_elec_mac_pur
+          type: from_entity
+      d_elec_vac_own:
+        - entity: d_elec_vac_own
+          type: from_entity
+      d_elec_vac_pur:
+        - entity: d_elec_vac_pur
+          type: from_entity
+      d_elec_hifi_own:
+        - entity: d_elec_hifi_own
+          type: from_entity
+      d_elec_hifi_pur:
+        - entity: d_elec_hifi_pur
+          type: from_entity
+
+      e_hotel:
+        - entity: e_hotel
+          type: from_entity
+      e_restaurant:
+        - entity: e_restaurant
+          type: from_entity
+      e_airlines:
+        - entity: e_airlines
+          type: from_entity
+      e_saloon:
+        - entity: e_saloon
+          type: from_entity
+      e_cabs:
+        - entity: e_cabs
+          type: from_entity
+
+      f_regular_holiday:
+        - entity: f_regular_holiday
+          type: from_entity
+      f_debt:
+        - entity: f_debt
+          type: from_entity
+      f_expenditure:
+        - entity: f_expenditure
+          type: from_entity
+      f_managing_money:
+        - entity: f_managing_money
+          type: from_entity
+      f_herbal_product:
+        - entity: f_herbal_product
+          type: from_entity
+      f_family_nutrition:
+        - entity: f_family_nutrition
+          type: from_entity
+      f_diet:
+        - entity: f_diet
+          type: from_entity
+      f_health_check:
+        - entity: f_health_check
+          type: from_entity
+      f_pay_organic_food:
+        - entity: f_pay_organic_food
+          type: from_entity
+      f_pay_good_products:
+        - entity: f_pay_good_products
+          type: from_entity
+      f_brands:
+        - entity: f_brands
+          type: from_entity
+      f_expensive_brands:
+        - entity: f_expensive_brands
+          type: from_entity
+      f_travelling:
+        - entity: f_travelling
+          type: from_entity
+      f_holiday_destination:
+        - entity: f_holiday_destination
+          type: from_entity
+      f_holiday_abroad:
+        - entity: f_holiday_abroad
+          type: from_entity
