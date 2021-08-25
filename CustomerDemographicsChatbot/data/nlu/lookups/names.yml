@@ -1,0 +1,55 @@
+version: "2.0"
+nlu:
+  - lookup: PERSON
+    examples: |
+      - Ananya sharma
+      - krishna kumar
+      - aishwarya shankar
+      - sumithra prakash
+      - rahul sengupta
+      - v. arjun
+      - ashika
+      - Navya. R
+      - Shubham Singh
+      - Rachel Singh
+      - Pruthvi G
+      - Gulipalli Gopinadh
+      - Kumar Saurav
+      - ravi kumar s
+      - shankar dev
+      - g v hari kumar
+      - sujatha hs
+      - srinivasa m n
+      - hari prasad
+      - vishnupriya G
+      - krishna kumar
+      - vimal varma
+      - lokesh kl
+      - loknath singh
+      - riya singh
+      - rizwan ahmed
+      - abdul shah
+      - abdul rahim
+      - Sumera Fathima
+      - John Joseph
+      - mohammad arif
+      - rithvik paasha
+      - afreen taj
+      - mohammed farhan
+      - christopher john
+      - Jeff lewin
+      - joseph smith
+      - kevin peters
+      - joseph kuruvilla
+      - Samantha Rose
+      - Emily Watson
+      - Roberta Mary Flynn
+      - Ashley Hawking
+      - Anthony Lawrence
+      - sindhu narayan
+      - shreeja s.r
+      - shruthi shringar
+      - Lakshmi Balaguruswamy
+      - neha saha
+      - reena aggarwal
+      - deeksha a rao

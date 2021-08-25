@@ -1,0 +1,155 @@
+version: "2.0"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+      - Hi, I'm [Agni](PERSON)
+      - Hi, My name is [Agni](PERSON)
+      - Hey my name is [Rahul Kumar](PERSON)
+      - I'm [Anusha](PERSON)
+      - Hello my name is [Ranjith](PERSON)
+      - Good morning, my name is [Mary Mathew](PERSON)
+      - Hi, I'm [Swetha](PERSON)
+      - Hi, my name is [Hemanth](PERSON)
+      - Hi
+      - Hi My name is [Aravind](PERSON)
+      - Hi my name is [Robert](PERSON)
+      - hi my name is [agni](PERSON)
+
+  - intent: inform
+    examples: |
+      - My name is [Paul](PERSON)
+      - I'm [Priya](PERSON)
+      - { Rahul Kumar }(PERSON)
+      - {John}(PERSON)
+      - My name is [ranjith](PERSON)
+      - Hi my name is [paul](PERSON)
+      - My name is [Robin](PERSON)
+      - My name is [Robert](PERSON)
+      - I am Rohit
+      - im david
+      - [krish@yahoo.in](a_email_id)
+      - [logan18@gmail.com](a_email_id)
+
+  - intent: goodbye
+    examples: |
+      - good afternoon
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+      - see you later
+      - goodbye
+      - i'm done
+      - quit
+      - stop
+      - bye
+      - Adios
+      - BYEE
+      - GOODBYE
+      - Thanks a lot. See ya later
+      - have a good day. time to go, bye
+      - bye bye
+      - ok i gtg
+      - bye bye bot
+      - bye for now
+      - bye udo
+      - bye was nice talking to you
+      - bye!
+      - byee
+      - catch you later
+      - ciao
+      - cya
+      - farewell
+      - good bye
+      - good bye rasa bot!
+      - good night
+      - goodbye
+      - goodbye.
+      - goodnight
+      - gotta go
+
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+      - sure
+      - okay
+      - ok
+      - alright
+      - yeah
+      - i am ready
+      - i'm ready
+
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+      - no thanks
+      - i don't want to
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+
+  - regex: a_email_id
+    examples: |
+      - ^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z\.]{2,4}$

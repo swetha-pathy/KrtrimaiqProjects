@@ -1,0 +1,58 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: affirm
+  - action: customer_info_form
+  - active_loop: customer_info_form
+  - active_loop: null
+#  - action: utter_thanks
+  - action: action_save_slot_values
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: deny
+  - action: utter_noworries
+
+#chitchat stories
+- story: chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+#  - action: utter_answerquestions
+#  - intent: affirm
+  - action: customer_info_form
+  - active_loop: customer_info_form
+  - active_loop: null
+#  - action: utter_thanks
+  - action: action_save_slot_values
+
+#- story: chitchat
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#  - intent: deny
+#  - action: utter_noworries
+#- story: another query
+#  steps:
+#  - intent: chitchat
+#  - action: utter_chitchat
+#  - intent: another_query
+#  - action: utter_input_query
+
+
+#- story: sad path 2
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - intent: deny
+#  - action: utter_goodbye

@@ -1,0 +1,29 @@
+version: "2.0"
+
+rules:
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Confirm that the bot is not a human
+  steps:
+  - intent: check_human
+  - action: utter_bot
+
+- rule: chitchat in the middle of an active form
+  condition:
+  - active_loop: customer_info_form
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+  - action: customer_info_form
+  - active_loop: customer_info_form
+  - active_loop: null
+  - action: utter_thanks
+  - action: action_save_slot_values
