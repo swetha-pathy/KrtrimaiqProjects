@@ -1,0 +1,1 @@
+Student level details can be updated by the admin.
