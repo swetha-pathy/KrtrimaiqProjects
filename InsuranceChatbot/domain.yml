@@ -1,0 +1,486 @@
+actions:
+- action_affirm
+- action_capture_document
+- action_correct_cus_info
+- action_default_fallback
+- action_deny
+- action_ec_validate_update_phone_no_otp
+- action_existing_customer_details_display
+- action_existing_customer_update_phone_no
+- action_greet
+- action_insert_new_customer
+- action_out_of_scope
+- action_phone_no_intent
+- action_product_info_display
+- action_products_display
+- action_reset_ec_otp_slot
+- action_reset_ec_update_phone_no_otp_slot
+- action_reset_existing_customer_phone_no_slot
+- action_reset_existing_customer_policy_no_slot
+- action_restart
+- action_scan_policy_qr_code
+- action_send_mail
+- action_send_mail_otp
+- action_send_whatsapp_quotation
+- action_set_slot_flow_buy_policy
+- action_set_slot_update_details
+- action_show_quotation
+- action_slot_ec_phone_or_policy
+- action_thankyou
+- action_validate_existing_customer
+- action_validate_existing_customer_otp
+- action_ec_validate_update_email_otp
+- action_existing_customer_update_email_address
+- action_send_whatsapp_otp_update_email
+- action_set_slot_update_details_email
+- utter_ask_address_slot
+- utter_ask_age_slot
+- utter_ask_anything_else
+- utter_ask_buy_policy
+- utter_ask_continue_buy_policy
+- utter_ask_continue_show_quotation
+- utter_ask_customer_name
+- utter_ask_email_id
+- utter_ask_phone_no
+- utter_ask_profession_slot
+- utter_ask_sending_quotation
+- utter_ask_slot_ec_get_update_email_id
+- utter_ask_slot_ec_get_update_phone_no
+- utter_ask_slot_ec_otp
+- utter_ask_slot_ec_otp_update_phone_no
+- utter_ask_slot_ec_phone_no
+- utter_ask_slot_ec_policy_no
+- utter_buy_or_quote
+- utter_buy_policy_provide_details_message
+- utter_cus_info
+- utter_default
+- utter_documents_required_message
+- utter_ec_ask_buy_policy
+- utter_ec_ask_sending_quotation
+- utter_ec_buy_or_quote
+- utter_ec_documents_required_message
+- utter_ec_options
+- utter_ec_phone_no_details_wrong_message
+- utter_ec_phone_no_otp_wrong_message
+- utter_ec_phone_or_policy_number
+- utter_ec_policy_no_details_wrong_message
+- utter_ec_scan_or_manual_policy_no
+- utter_ec_update_phone_no_otp_wrong_message
+- utter_ec_upload_document
+- utter_ec_whatsapp_instructions
+- utter_existing_customer_message
+- utter_greet
+- utter_iamabot
+- utter_mail_send
+- utter_mail_send_OTP
+- utter_noworries
+- utter_out_of_scope
+- utter_payment_success_message
+- utter_provide_details_message
+- utter_restart
+- utter_show_quotation
+- utter_slots_values
+- utter_submit
+- utter_type_customer
+- utter_update_details_options
+- utter_upload_NotSuccess_message
+- utter_upload_document
+- utter_upload_success_go_to_payment_message
+- utter_whatsapp_instructions
+- utter_wrong_address_slot
+- utter_wrong_age_slot
+- utter_wrong_customer_name
+- utter_wrong_email_id
+- utter_wrong_phone_no
+- utter_wrong_phone_no_country_code
+- utter_wrong_profession_slot
+- utter_wrong_slot_ec_otp
+- utter_wrong_slot_ec_phone_no
+- utter_ec_whatsapp_otp_instructions
+entities:
+- address
+- age
+- customer_name
+- email
+- otp
+- phone
+- policy_number
+- profession
+forms:
+- ec_otp_form
+- ec_whatsapp_otp_form
+- ec_phone_no_form
+- ec_policy_no_form
+- ec_update_details_form
+- new_policy_form
+- name_phoneno_form
+- age_profession_form
+- email_address_form
+intents:
+- update_phone_no
+- ec_policy_no
+- give_phoneno
+- ec_policy_no_manually
+- give_policyno
+- existing_policy
+- greet:
+    triggers: action_greet
+- update_details
+- info_correct_show_quotation
+- age_factor
+- give_address
+- product
+- give_profession
+- show_quotation
+- new_policy:
+    use_entities: []
+- no_buy_policy
+- give_mail
+- give_name
+- send_quotation_mail
+- deny
+- one_time_pass
+- inform
+- ec_phone_no
+- phone_intent
+- affirm
+- scan
+- stop
+- thankyou:
+    triggers: action_thankyou
+- bot_challenge
+- send_email
+- webcam
+- restart
+- get_correct_cus_info
+- product_info_display
+- buy_policy
+- send_quotation_whatsapp
+- yes_main_menu
+- no_main_menu
+- yes_buy_policy
+- go_to_payment
+- info_correct_buy_policy
+- info_wrong_buy_policy
+- info_wrong_show_quotation
+- localfile_upload
+- view_products
+- update_email_id
+- ec_buy_policy
+- ec_show_quotation
+- ec_localfile_upload
+- ec_webcam
+- ec_yes_buy_policy
+- ec_no_buy_policy
+- ec_yes_send_mail
+- ec_no_send_mail
+- ec_send_quotation_whatsapp
+- ec_send_quotation_mail
+- webcam_open
+- ec_webcam_open
+- upload_not_success
+- done_whatsapp_initiation
+- ec_done_whatsapp_initiation
+- ec_continue_to_send_otp
+- out_of_scope:
+    triggers: action_out_of_scope
+responses:
+  utter_ask_address_slot:
+  - text: Please enter your Address
+  utter_ask_age_slot:
+  - text: Please enter your Age
+  utter_ask_anything_else:
+  - buttons:
+    - payload: /yes_main_menu
+      title: Yes
+    - payload: /no_main_menu
+      title: No
+    text: Anything else that I can help you with?
+  utter_ask_buy_policy:
+  - buttons:
+    - payload: '/yes_buy_policy{"slot_flow": "Buy Policy"}'
+      title: Yes
+    - payload: /no_buy_policy
+      title: No
+    text: Do you want to buy policy?
+  utter_ask_continue_buy_policy:
+  - buttons:
+    - payload: /info_correct_buy_policy
+      title: Yes
+    - payload: /info_wrong_buy_policy
+      title: No
+    text: Are these details right?
+  utter_ask_continue_show_quotation:
+  - buttons:
+    - payload: /info_correct_show_quotation
+      title: Yes
+    - payload: /info_wrong_show_quotation
+      title: No
+    text: Are these details right?
+  utter_ask_customer_name:
+  - text: Please enter your Name
+  utter_ask_email_id:
+  - text: Please enter your Email address
+  utter_ask_phone_no:
+  - text: Please enter your Phone number with country code
+  utter_ask_profession_slot:
+  - text: Please enter your Profession
+  utter_ask_sending_quotation:
+  - buttons:
+    - payload: /send_quotation_mail
+      title: Mail
+    - payload: /send_quotation_whatsapp
+      title: WhatsApp
+    text: Do you want me to send Quotation over ?
+  utter_ask_slot_ec_get_update_email_id:
+  - text: Please enter the new Email address to be updated
+  utter_ask_slot_ec_get_update_phone_no:
+  - text: Please enter the New Phone Number with country code
+  utter_ask_slot_ec_otp:
+  - text: OTP has been sent to your mail for Verification. Could you please enter
+      it?
+  utter_ask_slot_ec_otp_update_phone_no:
+  - text: Please enter the OTP sent to your mail
+  utter_ask_slot_ec_phone_no:
+  - text: Please Enter your registered Phone Number
+  utter_ask_slot_ec_policy_no:
+  - text: Please Enter your Policy Number
+  utter_buy_or_quote:
+  - buttons:
+    - payload: '/show_quotation{"slot_flow": "Show Quotation"}'
+      title: Show Quotation
+    - payload: '/buy_policy{"slot_flow": "Buy Policy"}'
+      title: Buy Policy
+    text: Choose any option below
+  utter_buy_policy_provide_details_message:
+  - text: Please provide some of your details
+  utter_cus_info:
+  - text: Please enter right details
+  utter_default:
+  - text: sorry, I didn't understand you, please try input something else
+  utter_documents_required_message:
+  - text: 'Please provide any one document as Identity proof (Supported formats are jpeg, png, pdf) : Pan card or Aadhar card'
+  utter_ec_ask_buy_policy:
+  - buttons:
+    - payload: '/ec_yes_buy_policy{"slot_ec_flow": "Buy Policy"}'
+      title: Yes
+    - payload: /ec_no_buy_policy
+      title: No
+    text: Do you want to buy policy?
+  utter_ec_ask_sending_quotation:
+  - buttons:
+    - payload: /ec_send_quotation_mail
+      title: Mail
+    - payload: /ec_send_quotation_whatsapp
+      title: Whatsapp
+    text: Do you want me to send quotation over?
+  utter_ec_buy_or_quote:
+  - buttons:
+    - payload: '/ec_buy_policy{"slot_ec_flow": "Buy Policy"}'
+      title: Buy Policy
+    - payload: '/ec_show_quotation{"slot_ec_flow": "Show Quotation"}'
+      title: Show Quotation
+    text: Choose any option below
+  utter_ec_documents_required_message:
+  - text: 'Please provide any one document as Identity proof (Supported formats are jpeg, png, pdf) : Pan card or Aadhar card'
+  utter_ec_options:
+  - buttons:
+    - payload: /view_products
+      title: View Products
+    - payload: /update_details
+      title: Update Personal Details
+    text: Let me know how can I help you..?
+  utter_ec_phone_no_details_wrong_message:
+  - text: I'm sorry, this is not a registered Phone Number.
+  utter_ec_phone_no_otp_wrong_message:
+  - text: Please ensure you have entered right OTP
+  utter_ec_phone_or_policy_number:
+  - buttons:
+    - payload: '/ec_phone_no{"slot_ec_phone_or_policy": "Phone Number"}'
+      title: Phone Number
+    - payload: '/ec_policy_no{"slot_ec_phone_or_policy": "Policy Number"}'
+      title: Policy Number
+    text: How do you want us to find your identity?
+  utter_ec_policy_no_details_wrong_message:
+  - text: Please ensure you have entered right details. Please re-choose the options
+      to enter policy number!
+  utter_ec_scan_or_manual_policy_no:
+  - buttons:
+    - payload: /ec_policy_no_manually
+      title: Scan QR Code
+    - payload: /ec_policy_no_manually
+      title: Enter manually
+    text: Choose any option to input Policy number!
+  utter_ec_update_phone_no_otp_wrong_message:
+  - text: Please ensure you have entered right OTP
+  utter_ec_upload_document:
+  - buttons:
+    - payload: /ec_localfile_upload
+      title: Upload document from local
+    - payload: /ec_webcam
+      title: Click an image of document via webcam
+    text: Please select a way to upload the document
+  utter_ec_whatsapp_instructions:
+  - buttons:
+    - payload: /ec_done_whatsapp_initiation
+      title: Done with Initiation
+    text: "For receiving Quotation on WhatsApp, please follow a small step : From\
+      \ your WhatsApp send 'PROXY KrRasaInsurance' to '+91 78348 11114' number. You\
+      \ would receive 'Welcome! You are now chatting with KrRasaInsurance' message.\
+      \ This is confirmation for your WhatsApp number initiation. Once this is done,\
+      \ click the below button to receive your Quotation"
+  utter_existing_customer_message:
+  - text: Please contact the administrator!
+  utter_greet:
+  - text: Hello!
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_mail_send:
+  - text: Mail was sent successfully!
+  utter_mail_send_OTP:
+  - text: OTP has been sent to your mail for verification
+  utter_noworries:
+  - text: Fine, have a nice day!
+  utter_out_of_scope:
+  - text: Sorry, I can’t handle that request.
+  utter_payment_success_message:
+  - text: Payment done successfully!
+  utter_provide_details_message:
+  - text: To receive the quotation by Email or WhatsApp please provide following details
+  utter_restart:
+  - text: restarted
+  utter_show_quotation:
+  - text: 'This is your quotation : You have chosen {slot_product} product'
+  utter_slots_values:
+  - text: 'Your Details are - Name: {customer_name} - Phone No: {phone_no} - Email
+      Id: {email_id} - Age : {age_slot} - Address : {address_slot} - Profession: {profession_slot}'
+  utter_submit:
+  - text: All done!
+  utter_type_customer:
+  - buttons:
+    - payload: /new_policy
+      title: New Customer
+    - payload: /existing_policy
+      title: Existing Customer
+    text: I am Disha. I can help you find a suitable insurance policy.
+      Please let me know what type of customer you are?
+  utter_update_details_options:
+  - buttons:
+    - payload: '/update_phone_no{"slot_update_details" : "Update Phone No"}'
+      title: Update Phone Number
+    - payload: '/update_email_id{"slot_update_details" : "Update Email Id"}'
+      title: Update Email Address
+    text: Which detail you would like to update?
+  utter_upload_NotSuccess_message:
+  - buttons:
+    - payload: /upload_not_success
+      title: Re-Choose Options!!
+    text: Document was not uploaded correctly. Click below button to Re-choose the
+      upload options
+  utter_upload_document:
+  - buttons:
+    - payload: /localfile_upload
+      title: Upload File
+    - payload: /webcam
+      title: Click an image of document using Webcam
+    text: Please select a way to upload the document
+  utter_upload_success_go_to_payment_message:
+  - buttons:
+    - payload: /go_to_payment
+      title: Go To Payment
+    text: Document uploaded successfully..!! Click below button for online Payment
+  utter_whatsapp_instructions:
+  - buttons:
+    - payload: /done_whatsapp_initiation
+      title: Done with Initiation
+    text: "For receiving Quotation on WhatsApp, please follow a small step : \
+      \ From your WhatsApp send 'PROXY KrRasaInsurance' to '+91 78348 11114' number. You\
+      \ would receive 'Welcome! You are now chatting with KrRasaInsurance' message.\
+      \ This is confirmation for your WhatsApp number initiation. Once this is done,\
+      \ click the below button to receive your Quotation"
+  utter_wrong_address_slot:
+  - text: You have entered wrong Address
+  utter_wrong_age_slot:
+  - text: Valid Age range is 0 to 125
+  utter_wrong_customer_name:
+  - text: You have entered wrong name
+  utter_wrong_email_id:
+  - text: You have entered wrong email address
+  utter_wrong_phone_no:
+  - text: You have entered wrong phone no
+  utter_wrong_phone_no_country_code:
+  - text: You have entered the phone no without country code
+  utter_wrong_profession_slot:
+  - text: You have entered wrong Profession
+  utter_wrong_slot_ec_otp:
+  - text: Please enter correct OTP!
+  utter_wrong_slot_ec_phone_no:
+  - text: Please Enter correct Phone Number!
+  utter_ec_whatsapp_otp_instructions:
+    - buttons:
+        - payload: /ec_continue_to_send_otp
+          title: Continue to send OTP
+      text: "For receiving OTP on WhatsApp, we request you to follow a small step : \
+        \ From your WhatsApp send 'PROXY KrRasaInsurance' to '+91 78348 11114' number. You\
+        \ would receive 'Welcome! You are now chatting with KrRasaInsurance' message.\
+        \ This is confirmation for your WhatsApp number initiation. Please ignore if you have done already.\
+        \ click the below button to receive OTP to your WhatsApp"
+  utter_ask_slot_ec_otp_update_email_address:
+    - text: Please enter the OTP sent to your WhatsApp number
+  utter_wrong_slot_ec_otp_update_email_address:
+    - text: Please ensure you have entered right OTP
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
+slots:
+  address_slot:
+    auto_fill: false
+    type: text
+  age_slot:
+    auto_fill: false
+    type: unfeaturized
+  customer_name:
+    auto_fill: false
+    type: unfeaturized
+  email_id:
+    auto_fill: false
+    type: unfeaturized
+  phone_no:
+    auto_fill: false
+    type: unfeaturized
+  profession_slot:
+    auto_fill: false
+    type: unfeaturized
+  requested_slot:
+    type: unfeaturized
+  slot_ec_flow:
+    type: text
+  slot_ec_get_update_email_id:
+    auto_fill: false
+    type: unfeaturized
+  slot_ec_get_update_phone_no:
+    auto_fill: false
+    type: unfeaturized
+  slot_ec_otp:
+    auto_fill: false
+    type: unfeaturized
+  slot_ec_otp_update_phone_no:
+    auto_fill: false
+    type: unfeaturized
+  slot_ec_otp_update_email_address:
+    auto_fill: false
+    type: unfeaturized
+  slot_ec_phone_no:
+    auto_fill: false
+    type: unfeaturized
+  slot_ec_phone_or_policy:
+    type: text
+  slot_ec_policy_no:
+    auto_fill: false
+    type: unfeaturized
+  slot_flow:
+    type: text
+  slot_product:
+    type: text
+  slot_update_details:
+    type: text
