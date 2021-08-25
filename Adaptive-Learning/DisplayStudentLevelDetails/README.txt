@@ -1,0 +1,2 @@
+Returns student level details in the admin portal.
+Student level includes the user level (Beginner, Intermediate and Advanced) and their respective minimum and maximum percentages to progress to the next level.
